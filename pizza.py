@@ -19,7 +19,12 @@ def arg_end():
     return sys.argv[1].endswith('.csv')
 
 def arg_exist():
-    open(sys.argv[1])
+    try:
+        open(sys.argv[1])
+    except FileNotFoundError:
+        return False
+    else:
+        return True
     
 
 
